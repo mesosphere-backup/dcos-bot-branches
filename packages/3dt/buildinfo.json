@@ -1,12 +1,14 @@
 {
-  "requires": ["exhibitor"],
-  "single_source" : {
+  "group": "systemd-journal",
+  "requires": [
+    "exhibitor"
+  ],
+  "single_source": {
+    "git": "https://github.com/mesosphere-mergebot/mergebot-test-3dt.git",
     "kind": "git",
-    "git": "https://github.com/dcos/3dt.git",
-    "ref": "25cc4189d66ba20422cabf4565448312267e0f38",
+    "ref": "d972ef70b9985e6324acbbcae228c31bd4a07db1",
     "ref_origin": "master"
   },
-  "username": "dcos_3dt",
-  "group": "systemd-journal",
-  "state_directory": true
+  "state_directory": true,
+  "username": "dcos_3dt"
 }
