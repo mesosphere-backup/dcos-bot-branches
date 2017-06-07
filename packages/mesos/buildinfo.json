@@ -1,24 +1,29 @@
 {
-  "requires": ["openssl", "libevent", "curl", "boost-libs"],
-  "single_source" : {
-    "kind": "git",
-    "git": "https://github.com/mesosphere/mesos",
-    "ref": "9cc627d9f32d56f14f277e823a759183ef4b234d",
-    "ref_origin" : "dcos-mesos-master-4faca73"
-  },
-  "environment": {
-    "JAVA_LIBRARY_PATH": "/opt/mesosphere/lib",
-    "MESOS_NATIVE_JAVA_LIBRARY": "/opt/mesosphere/lib/libmesos.so"
+  "requires": [
+    "openssl",
+    "libevent",
+    "curl",
+    "boost-libs"
+  ],
+  "sysctl": {
+    "dcos-mesos-slave-public": {
+      "vm.max_map_count": 262144,
+      "vm.swappiness": 1
+    },
+    "dcos-mesos-slave": {
+      "vm.max_map_count": 262144,
+      "vm.swappiness": 1
+    }
   },
   "state_directory": true,
-  "sysctl": {
-      "dcos-mesos-slave": {
-          "vm.max_map_count": 262144,
-          "vm.swappiness": 1
-      },
-      "dcos-mesos-slave-public": {
-          "vm.max_map_count": 262144,
-          "vm.swappiness": 1
-      }
+  "single_source": {
+    "kind": "git",
+    "git": "git@github.com:mesosphere/mesos.git",
+    "ref": "ed315a2b366898e341062fc12239a9d773045b5b",
+    "ref_origin": "pkg-builder/mesos-cae76904"
+  },
+  "environment": {
+    "MESOS_NATIVE_JAVA_LIBRARY": "/opt/mesosphere/lib/libmesos.so",
+    "JAVA_LIBRARY_PATH": "/opt/mesosphere/lib"
   }
 }
